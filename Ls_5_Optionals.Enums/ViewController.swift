@@ -111,28 +111,39 @@ class ViewController: UIViewController {
         //это можно не смотреть, еще не разобрался)
         
         
-        //        enum Book {
-        //
-        //            enum Joanne_Rowling {
-        //                case HarryPotter(pubDate: Int, countOfPages: Int, rating: Int)
-        //                case BlackHeart(pubDate: String, countOfPages: Int, rating: String)
-        //            }
-        //
-        //            enum Stephen_King {
-        //                case It(pubDate: Int, countOfPages: Int, rating: Int)
-        //                case TheShining(pubDate: String, countOfPages: Int, rating: String)
-        //            }
-        //
-        //
-        //                }
-        //
-        //
+        enum Book {
+            case details(title: String, author: String, description: String)
+            
+            func bookDescription() -> String {
+                switch self {
+                case .details(let title, let author, let description):
+                    return "Title: \(title)/nAuthor: \(author)\nDescription: \(description)"
+                }
+            }
+        }
         
+        enum Clothing {
+            case details(size: String, type: String, brand: String)
+            
+            func clothingDescription() -> String {
+                switch self {
+                case .details(let size, let type, let brand):
+                    return "Type: \(type)/nSize: \(size)\nBrand: \(brand)"
+                }
+            }
+        }
+        
+        let bookDetails = Book.details(title: "Harry Potter", author: "Joahne Rowling", description: "Book about children who can alive")
+        print(bookDetails)
+        
+        let poloDetails = Clothing.details(size: "M", type: "Polo", brand: "Nike")
+        print (poloDetails)
         
     }
-    
-    
 }
+
+
+
 
 
 
